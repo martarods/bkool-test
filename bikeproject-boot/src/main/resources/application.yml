@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bkool
+    username: postgres
+    password: root
+    driverClassName: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  cache:
+    cache-names: bikes
+    caffeine:
+      spec: expireAfterWrite=5m
+
+app:
+  security:
+    jwt:
+      secret: 3cbfd9ea491ddaf57241ecdf6307fd57205dd72a0743c920bdff7689cdc7f857
+      expiration: 600000
