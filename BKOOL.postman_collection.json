@@ -9,16 +9,74 @@
 		{
 			"name": "Create a new bike",
 			"request": {
-				"method": "GET",
-				"header": []
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXJ0YSIsImlhdCI6MTcxMTExODc2OSwiZXhwIjoxNzExMTE5MzY5fQ.5_dfa2EB0UdxBl2Rl0Q8iZjRBMz28Fl4rgtCDfOaiHk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"name\": \"A\",\n  \"description\": \"a new bike\",\n  \"price\": 999.99,\n  \"manufacturer\": \"Specialized\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"model\": \"Alpha comp\",\n      \"type\": \"Frame\",\n      \"description\": \"Lightweight and durable aluminum frame suitable for various riding styles.\"\n    },\n    {\n      \"id\": 2,\n      \"model\": \"DT Swiss XDR 1600\",\n      \"type\": \"wheelset\",\n      \"description\": \"Lightweight and durable aluminum wheelset for various riding styles.\"\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/bikes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bikes"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Create another bike",
 			"request": {
-				"method": "GET",
-				"header": []
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXJ0YSIsImlhdCI6MTcxMTExODc2OSwiZXhwIjoxNzExMTE5MzY5fQ.5_dfa2EB0UdxBl2Rl0Q8iZjRBMz28Fl4rgtCDfOaiHk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 2,\n  \"name\": \"B\",\n  \"description\": \"a new bike\",\n  \"price\": 999.99,\n  \"manufacturer\": \"Derby\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"model\": \"Alpha comp\",\n      \"type\": \"Frame\",\n      \"description\": \"Lightweight and durable aluminum frame suitable for various riding styles.\"\n    },\n    {\n      \"id\": 2,\n      \"model\": \"DT Swiss XDR 1600\",\n      \"type\": \"wheelset\",\n      \"description\": \"Lightweight and durable aluminum wheelset for various riding styles.\"\n    },\n    {\n      \"id\": 3,\n      \"model\": \"Fizik Ariante R3\",\n      \"type\": \"saddle\",\n      \"description\": \"Lightweight and comfortable saddle with ergonomic design.\"\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/bikes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bikes"
+					]
+				}
 			},
 			"response": []
 		},
@@ -54,8 +112,24 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Marta\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "localhost:8080/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth"
+					]
 				}
 			},
 			"response": []
@@ -63,8 +137,50 @@
 		{
 			"name": "Find a bike",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXJ0YSIsImlhdCI6MTcxMTExODc2OSwiZXhwIjoxNzExMTE5MzY5fQ.5_dfa2EB0UdxBl2Rl0Q8iZjRBMz28Fl4rgtCDfOaiHk",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/bikes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bikes"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "A",
+							"disabled": true
+						},
+						{
+							"key": "manufacturer",
+							"value": "Specialized",
+							"disabled": true
+						},
+						{
+							"key": "itemType",
+							"value": "Frame",
+							"disabled": true
+						},
+						{
+							"key": "orderBy",
+							"value": "desc",
+							"disabled": true
+						}
+					]
+				}
 			},
 			"response": []
 		}
